@@ -68,7 +68,7 @@ exports.addMovie = async (req, res) => {
   });
 };
 exports.allmovie = async (req, res, next) => {
-  const { page = 1, limit = 10 } = req.query;
+  const { page = 1, limit = 12 } = req.query;
   console.log(req.query);
   const movie_details = await Movie.find()
     .limit(limit * 1)
