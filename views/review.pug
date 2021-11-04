@@ -1,0 +1,47 @@
+extends base
+
+block append head 
+    link(rel='stylesheet' href='/resources/css/review_page.css')
+
+block content
+    section.middle_section
+        .review_section
+            h1.reviewh1= `${movie_detail.movieName}`
+            p.reviewh1= `✅ Download ${movie_detail.storyline}`
+            .reviewart
+                .col.span-1-of-3.review_div
+                    img.review_img(src=`/resources/img/movie/${movie_detail.movieImage}`)
+                .col.span-2-of-3.review_para
+                    h3= `${movie_detail["title"]}`
+                    p=`${movie_detail["movieDuration"]} | ${movie_detail["rating"]} | ${movie_detail["releaseDate"]} | India`
+                    hr
+                    strong=`Rating: ${movie_detail["rating"]} / 10 from 54,102 users`
+                    br
+                    strong=`Metascore: ${movie_detail['metaRating']}`
+                    br
+                    |               he true story of the “Flying Sikh” – world champion runner and
+                    |               Olympian Milkha Singh — who overcame the massacre of his family
+                    p
+                        strong= `Director:${movie_detail['director']}`
+                        br
+                        br
+                        strong= `Actors: ${movie_detail['actor']}`
+            .reviewthird
+                center
+                    h2=`${movie_detail['movieName']} 720p BluRay ESubs Download`
+                h4.reviewh1 Movie Info:
+                ul.reviewh1(style='padding-left: 57px')
+                    li= `Full Name:${movie_detail['title']}`
+                    li= `Language:${movie_detail['language']}`
+                    li Size: 1.4GB
+                    li Quality: 720p
+                    li Format: Mkv
+                h4.reviewh1 Story Line
+                p.reviewh1=`${movie_detail.storyline}`
+            h4.reviewh1 ScreenShots
+            div
+                each movie_cover in movie_detail['coverImage']
+                    img.reviewimg1(src=`/resources/img/moviePoster/${movie_cover}` alt=`${movie_cover}`)
+            center
+                a(href='https://Pglink.in/cme71H')
+                    button.download_link Download(720p)

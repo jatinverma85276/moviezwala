@@ -1,0 +1,158 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: "Georama", sans-serif;
+  font-weight: 300;
+  color: rgb(75, 75, 75);
+  background-color: rgb(206, 205, 205);
+}
+
+.row {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.logo {
+  width: 30%;
+  margin-top: 1%;
+}
+
+/********************************/
+/* DROPDOWN */
+/********************************/
+
+.dropbtn {
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  background-color: rgb(206, 205, 205);
+  text-transform: uppercase;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  background-color: azure;
+  display: none;
+  position: absolute;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* .dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+} */
+
+/********************************/
+/* NAVIGATION */
+/********************************/
+
+.main-nav {
+  float: right;
+  list-style: none;
+  margin-top: 2%;
+}
+
+.main-nav li {
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.main-nav li a {
+  color: #000;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.form-align {
+  text-align: center;
+}
+
+.form-align input {
+  border: none;
+  padding: 1%;
+  width: 50%;
+  margin-top: 2%;
+}
+
+/********************************/
+/** MOVIES SECTION **/
+/********************************/
+
+.movies-section {
+  margin-top: 3%;
+}
+
+.movies-section img {
+  width: 210px;
+  height: 296px;
+}
+
+.card {
+  margin-left: 10px;
+  margin-bottom: 30px;
+}
+#buttonSearch {
+  font-size: 27git px;
+}
+
+@media (max-width: 516px) {
+  .movies-section img {
+    width: 156px;
+    height: 252px;
+  }
+  h3 {
+    width: 156px;
+  }
+  .card {
+    margin-left: 0;
+  }
+  #main {
+    margin-left: 14px;
+  }
+  #imgg {
+    width: 166px;
+  }
+
+  /********************************/
+  /** HEADERS */
+  nav {
+    text-align: center;
+  }
+  .logo {
+    width: 80%;
+  }
+  .form-align {
+    display: flex;
+    justify-content: center;
+  }
+  .form-align input {
+    width: 12rem;
+  }
+  #buttonSearch {
+    font-size: 18px;
+  }
+}

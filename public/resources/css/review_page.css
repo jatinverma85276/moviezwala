@@ -1,0 +1,82 @@
+.middle_section {
+  padding: 1% 10%;
+}
+.review_section {
+  background-color: white;
+}
+span {
+  background-image: url(https://moviesverse.com/wp-content/plugins/imdb-for-wordpress/assets/img/imdb-star.png);
+}
+.reviewh1 {
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 20px;
+}
+
+.reviewart {
+  float: right;
+}
+.reviewimg1 {
+  width: 1090px;
+  padding-bottom: 8px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (max-width: 516px) {
+  .reviewimg1 {
+    width: 102%;
+  }
+  .review_para {
+    padding: 3%;
+  }
+  .review_img {
+    margin-top: 1em;
+  }
+  .middle_section {
+    padding: 1% 4%;
+  }
+}
+/*************************************Button*******************************************/
+.download_link {
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  font-size: 25px;
+  margin: 4px 2px;
+  opacity: 1;
+  transition: 0.3s;
+  background-color: #f4511e;
+  border: none;
+  margin-top: 50px;
+  margin-bottom: 80px;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+}
+
+.review_img {
+  width: 89%;
+  margin-left: 22px;
+}
+
+.review_div {
+  width: 20.22%;
+  height: 80%;
+}
+
+.reviewart {
+  background-color: #343a40;
+  color: aliceblue;
+  line-height: 2;
+  margin-top: 20px;
+  margin-bottom: 2em;
+  width: 100%;
+}
+
+.reviewthird {
+  margin-top: 24rem;
+}
+h4 {
+  margin-bottom: 1em;
+}
