@@ -36,3 +36,32 @@ exports.search = async (req, res) => {
     searchMovie,
   });
 };
+
+exports.genreMovie = async (req, res) => {
+  console.log(req.params.genre);
+
+  const genreMovie = await Movie.find({
+    genre: req.params.genre,
+  });
+  res.status(200).render("genre", {
+    genreMovie,
+  });
+};
+
+exports.yearMovie = async (req, res) => {
+  console.log(req.params.year);
+  const yearMovie = await Movie.find({
+    year: req.params.year,
+  });
+  res.status(200).render("year", {
+    yearMovie,
+  });
+};
+
+exports.tvShow = async (req, res) => {
+  res.status(200).render("sorry");
+};
+
+exports.webSeries = async (req, res) => {
+  res.status(200).render("sorry");
+};

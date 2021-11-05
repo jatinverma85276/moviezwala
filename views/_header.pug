@@ -5,69 +5,50 @@ header
                 img.logo(src='/resources/img/logo.png' alt='logo')
             ul.main-nav
                 li
-                    a(href='') HOME
-                li
-                    .dropdown
-                        button.dropbtn Movies
-                        .dropdown-content
-                            a(href='') Latest Released
-                            a(href='') Hollywood
-                            a(href='') Bollywood
-                            a(href='') Dual Audio
-                            a(href='') Multi Audio
-                            a(href='') Hindi Movies
+                    a(href='/') HOME
                 li
                     .dropdown
                         button.dropbtn Genre
                         .dropdown-content
-                            a(href='') Latest Released
-                            a(href='') Hollywood
-                            a(href='') Bollywood
-                            a(href='') Dual Audio
-                            a(href='') Multi Audio
-                            a(href='') Hindi Movies
+                            a(href='/genre/action') Action
+                            a(href='/genre/adventure') Adventour
+                            a(href='/genre/crime') Crime
+                            a(href='/genre/thriller') Thriller
+                            a(href='/genre/SciFi') SciFi
                 li
                     .dropdown
                         button.dropbtn Year
                         .dropdown-content
-                            a(href='') Latest Released
-                            a(href='') Hollywood
-                            a(href='') Bollywood
-                            a(href='') Dual Audio
-                            a(href='') Multi Audio
-                            a(href='') Hindi Movies
-                li
-                    .dropdown
-                        button.dropbtn Quality
-                        .dropdown-content
-                            a(href='') Latest Released
-                            a(href='') Hollywood
-                            a(href='') Bollywood
-                            a(href='') Dual Audio
-                            a(href='') Multi Audio
-                            a(href='') Hindi Movies
+                            a(href='/year/latest-released') Latest Released
+                            a(href='/year/2020') 2020
+                            a(href='/year/2019') 2019
+                            a(href='/year/2018') 2018
+                            a(href='/year/2017') 2017
+                            a(href='/year/2016') 2016
+                            a(href='/year/2015') 2015
+                            a(href='/year/2000-2010') 2000-2010
                 li
                     .dropdown
                         button.dropbtn TV shows
                         .dropdown-content
-                            a(href='') Latest Released
-                            a(href='') Hollywood
-                            a(href='') Bollywood
-                            a(href='') Dual Audio
-                            a(href='') Multi Audio
-                            a(href='') Hindi Movies
+                            a(href='/tv-shows') Action Series
+                            a(href='/tv-shows') Adventure Series
+                            a(href='/tv-shows') Comedy Series
+                            a(href='/tv-shows') Crime Series
+                            a(href='/tv-shows') Drama Series
+                            a(href='/tv-shows') Sci-Fi Series
                 li
                     .dropdown
                         button.dropbtn Web Series
                         .dropdown-content
-                            a(href='') Latest Released
-                            a(href='') Hollywood
-                            a(href='') Bollywood
-                            a(href='') Dual Audio
-                            a(href='') Multi Audio
-                            a(href='') Hindi Movies
+                            a(href='/web-series') Hindi Dubbed
+                            a(href='/web-series') English 
+                            a(href='/web-series') Netflix
+                            a(href='/web-series') Amazon Prime Video
+                            a(href='/web-series') HULU
+                            a(href='/web-series') The CW
     .row.form-align
         form(action='/search', method='GET')
             input(type='text' placeholder=' Search Courses' name='search')
             button
-                i.ion-android-search#buttonSearch  
+                i#buttonSearch.ion-android-search  

@@ -2,7 +2,6 @@ const fetch = (...args) =>
   import("node-fetch").then(({ default: fetch }) => fetch(...args));
 const Movie = require("../models/movieModel");
 const fs = require("fs");
-const APIFeatures = require("./../utils/apiFeatures");
 const request = require("request");
 
 var download = function (uri, filename, callback) {
@@ -11,6 +10,11 @@ var download = function (uri, filename, callback) {
   });
 };
 let i = 1;
+
+const rangeOfYears = (start, end) =>
+  Array(end - start + 1)
+    .fill(start)
+    .map((year, index) => year + index);
 
 exports.addMovie = async (req, res) => {
   const imdb_id = req.params.movieName;
@@ -50,7 +54,7 @@ exports.addMovie = async (req, res) => {
     title: imdb_data["title"],
     movieDuration: imdb_data["runtimeStr"],
     movieImage: `${imdb_data["title"]}.jpg`,
-    genre: imdb_data["genres"],
+    genre: [...imdb_data["genres"].toLowerCase().split(", ")],
     releaseDate: imdb_data["releaseDate"],
     rating: imdb_data["imDbRating"],
     metaRating: imdb_data["metacriticRating"],
@@ -60,6 +64,7 @@ exports.addMovie = async (req, res) => {
     language: imdb_data["languages"],
     coverImage: cover_images,
     keywords: [...movieSplitKeyword, imdb_data["title"].toLowerCase()],
+    year: imdb_data["year"],
   });
 
   res.status(200).json({
@@ -96,13 +101,45 @@ exports.getDetail = async (req, res, next) => {
   });
 };
 
-exports.search = async (req, res) => {
-  const searchMovie = await Movie.find(req.params.searchedMovie);
+exports.genreMovie = async (req, res) => {
+  console.log(req.params.genre);
 
+  const genreMovie = await Movie.find({
+    genre: req.params.genre,
+  });
   res.status(200).json({
     status: "success",
+    results: genreMovie.length,
     data: {
-      searchMovie,
+      genreMovie,
+    },
+  });
+};
+
+exports.yearMovie = async (req, res) => {
+  // let year;
+  // if (req.params.year === "2000-2010") {
+  //   year = rangeOfYears(2000, 2010);
+  // } else if (req.params.year === "2010") {
+  //   year = rangeOfYears(2010, 2017);
+  // } else if (
+  //   req.params.year === "2018" ||
+  //   req.params.year === "2019" ||
+  //   req.params.year === "2020"
+  // ) {
+  //   year = req.params.year;
+  // } else {
+  //   year = new Date().getFullYear();
+  // }
+  console.log(req.params.year);
+  const yearMovie = await Movie.find({
+    year: req.params.year,
+  });
+  res.status(200).json({
+    status: "success",
+    results: yearMovie.length,
+    data: {
+      yearMovie,
     },
   });
 };

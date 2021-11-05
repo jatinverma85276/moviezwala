@@ -116,7 +116,11 @@ body {
   margin-bottom: 30px;
 }
 #buttonSearch {
-  font-size: 27git px;
+  font-size: 27px;
+}
+.container {
+  text-align: center;
+  margin-top: 8rem;
 }
 
 @media (max-width: 516px) {
@@ -154,5 +158,11 @@ body {
   }
   #buttonSearch {
     font-size: 18px;
+  }
+}
+
+@media (max-width: 751px) {
+  #imgg {
+    width: 29.72%;
   }
 }
