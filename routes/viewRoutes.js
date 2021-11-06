@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/", viewController.getOverview);
-router.get("/:page", viewController.getpage);
+router.get("/page/:page", viewController.getpage);
 router.get("/movie/:slug", viewController.getMovie);
 router.get("/search", viewController.search);
 router.get("/genre/:genre", viewController.genreMovie);
