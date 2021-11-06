@@ -28,7 +28,7 @@ exports.getpage = async (req, res) => {
 exports.getMovie = async (req, res) => {
   // 1) Get the data, for the requested tour (including reviews and guides)
   const movie_detail = await Movie.findOne({ slug: req.params.slug });
-  console.log(movie_detail);
+  // console.log(movie_detail);
   // 2) Build template
   // 3) Render template using data from 1)
   res.status(200).render("review", {
@@ -39,18 +39,18 @@ exports.getMovie = async (req, res) => {
 
 exports.search = async (req, res) => {
   const { search } = req.query;
-  console.log(search);
+  // console.log(search);
   const searchMovie = await Movie.find({
     keywords: search.toLowerCase(),
   }).exec();
-  console.log(searchMovie);
+  // console.log(searchMovie);
   res.status(200).render("search", {
     searchMovie,
   });
 };
 
 exports.genreMovie = async (req, res) => {
-  console.log(req.params.genre);
+  // console.log(req.params.genre);
 
   const genreMovie = await Movie.find({
     genre: req.params.genre,
@@ -61,7 +61,7 @@ exports.genreMovie = async (req, res) => {
 };
 
 exports.yearMovie = async (req, res) => {
-  console.log(req.params.year);
+  // console.log(req.params.year);
   const yearMovie = await Movie.find({
     year: req.params.year,
   });

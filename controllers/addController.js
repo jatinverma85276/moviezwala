@@ -20,12 +20,12 @@ exports.addMovie = async (req, res) => {
   const imdb_data = await imdb_response.json();
   const backdrops = imdb_data.posters["backdrops"].slice(0, 4);
   for (const poster of backdrops) {
-    console.log(poster["link"]);
+    // console.log(poster["link"]);
     download(
       `${poster["link"]}`,
       `./public/resources/img/moviePoster/${imdb_data["title"] + i}.jpg`,
       function () {
-        console.log("done poster");
+        // console.log("done poster");
       }
     );
 
@@ -41,7 +41,7 @@ exports.addMovie = async (req, res) => {
     `${imdb_data["image"]}`,
     `./public/resources/img/movie/${imdb_data["title"]}.jpg`,
     function () {
-      console.log("done");
+      // console.log("done");
     }
   );
   const movie_Name = `Download ${imdb_data["fullTitle"]} {${imdb_data["languages"]}}`;
@@ -58,7 +58,7 @@ exports.addMovie = async (req, res) => {
     storyline: imdb_data["plot"],
     director: imdb_data["directors"],
     actor: imdb_data["stars"],
-    language: imdb_data["languages"],
+    langua: imdb_data["languages"],
     coverImage: cover_images,
     keywords: [...movieSplitKeyword, imdb_data["title"].toLowerCase()],
     year: imdb_data["year"],
@@ -72,7 +72,7 @@ exports.addMovie = async (req, res) => {
 };
 exports.allmovie = async (req, res, next) => {
   const { page = 1, limit = 12 } = req.query;
-  console.log(req.query);
+  // console.log(req.query);
   const movie_details = await Movie.find()
     .limit(limit * 1)
     .skip((page - 1) * limit);
@@ -100,7 +100,7 @@ exports.getDetail = async (req, res, next) => {
 };
 
 exports.genreMovie = async (req, res) => {
-  console.log(req.params.genre);
+  // console.log(req.params.genre);
 
   const genreMovie = await Movie.find({
     genre: req.params.genre,
@@ -129,7 +129,7 @@ exports.yearMovie = async (req, res) => {
   // } else {
   //   year = new Date().getFullYear();
   // }
-  console.log(req.params.year);
+  // console.log(req.params.year);
   const yearMovie = await Movie.find({
     year: req.params.year,
   });

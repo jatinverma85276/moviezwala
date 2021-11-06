@@ -35,7 +35,7 @@ const movieSchema = new mongoose.Schema({
   director: String,
   creator: String,
   actor: String,
-  language: String,
+  langua: String,
   coverImage: [String],
   keywords: [String],
   download: String,
