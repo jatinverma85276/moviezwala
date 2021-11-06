@@ -11,7 +11,7 @@ exports.getOverview = async (req, res) => {
 };
 
 exports.getpage = async (req, res) => {
-  var perPage = 5;
+  var perPage = 20;
   var page = req.params.page || 1;
   // 1) Get movie data from Collection
   const movies = await Movie.find()
