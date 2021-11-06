@@ -19,8 +19,7 @@ block content
                     br
                     strong=`Metascore: ${movie_detail['metaRating']}`
                     br
-                    |               he true story of the “Flying Sikh” – world champion runner and
-                    |               Olympian Milkha Singh — who overcame the massacre of his family
+                    strong=`${movie_detail.storyline.slice(0,230)}`
                     p
                         strong= `Director:${movie_detail['director']}`
                         br
@@ -43,5 +42,5 @@ block content
                 each movie_cover in movie_detail['coverImage']
                     img.reviewimg1(src=`/resources/img/moviePoster/${movie_cover}` alt=`${movie_cover}`)
             center
-                a(href='https://Pglink.in/cme71H')
+                a(href=`${movie_detail['download']}`)
                     button.download_link Download(720p)

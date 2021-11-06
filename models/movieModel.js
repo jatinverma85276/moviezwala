@@ -38,6 +38,7 @@ const movieSchema = new mongoose.Schema({
   language: String,
   coverImage: [String],
   keywords: [String],
+  download: String,
 });
 
 // DOCUMENT MIDDLEWARE: runs before .save() and .create()

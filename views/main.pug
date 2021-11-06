@@ -5,7 +5,19 @@ block content
         .row#main
             each movie in movies 
                 .col.span-1-of-5.card#imgg
-                    img(src=`/resources/img/movie/${movie.movieImage}` alt=`${movie.movieName}`)
+                    a(href=`/movie/${movie.slug}` )
+                        img(src=`/resources/img/movie/${movie.movieImage}` alt=`${movie.movieName}`)
                     a(href=`/movie/${movie.slug}` )
                         h3= movie.movieName
             
+    footer 
+        p="For Next Page"
+        ul
+            li
+                a(href='/1') 1
+            li
+                a(href='/2') 2
+            li
+                a(href='/3') 3
+            li
+                a(href='/4') 4

@@ -11,11 +11,6 @@ var download = function (uri, filename, callback) {
 };
 let i = 1;
 
-const rangeOfYears = (start, end) =>
-  Array(end - start + 1)
-    .fill(start)
-    .map((year, index) => year + index);
-
 exports.addMovie = async (req, res) => {
   const imdb_id = req.params.movieName;
 
@@ -33,6 +28,8 @@ exports.addMovie = async (req, res) => {
         console.log("done poster");
       }
     );
+
+    i++;
   }
   const cover_images = [
     `${imdb_data["title"]}1.jpg`,
@@ -65,6 +62,7 @@ exports.addMovie = async (req, res) => {
     coverImage: cover_images,
     keywords: [...movieSplitKeyword, imdb_data["title"].toLowerCase()],
     year: imdb_data["year"],
+    download: "kjkjnx",
   });
 
   res.status(200).json({

@@ -3,8 +3,20 @@ const fetch = (...args) =>
 const Movie = require("./../models/movieModel");
 
 exports.getOverview = async (req, res) => {
-  // 1) Get movie data from Collection
   const movies = await Movie.find();
+  res.status(200).render("main", {
+    title: "All movie",
+    movies,
+  });
+};
+
+exports.getpage = async (req, res) => {
+  var perPage = 5;
+  var page = req.params.page || 1;
+  // 1) Get movie data from Collection
+  const movies = await Movie.find()
+    .skip(perPage * page - perPage)
+    .limit(perPage);
 
   // 2) Render that template using tour data from 1)
   res.status(200).render("main", {
