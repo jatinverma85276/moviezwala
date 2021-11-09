@@ -40,7 +40,7 @@ block content
             h4.reviewh1 ScreenShots
             div
                 each movie_cover in movie_detail['coverImage']
-                    img.reviewimg1(src=`/resources/img/moviePoster/${movie_cover}` alt=`${movie_cover}`)
+                    img.reviewimg1(src=`/resources/img/moviePoster/${movie_cover}`)
             center
                 a(href=`${movie_detail['download']}`)
                     button.download_link Download(720p)
