@@ -63,6 +63,7 @@ exports.addMovie = async (req, res) => {
     keywords: [...movieSplitKeyword, imdb_data["title"].toLowerCase()],
     year: imdb_data["year"],
     download: "kjkjnx",
+    size: "892",
   });
 
   res.status(200).json({
