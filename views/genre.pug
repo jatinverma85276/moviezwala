@@ -2,9 +2,9 @@ extends base
 
 block content 
     section.movies-section
-        .row
+        .row#main
             each movie in genreMovie 
-                .col.span-1-of-5.card
+                .col.span-1-of-5.card#imgg
                     img(src=`/resources/img/movie/${movie.movieImage}` alt=`${movie.movieName}`)
                     a(href=`/movie/${movie.slug}` )
                         h3= movie.movieName
