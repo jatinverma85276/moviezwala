@@ -64,6 +64,7 @@ exports.addMovie = async (req, res) => {
     year: imdb_data["year"],
     download: "kjkjnx",
     size: "892",
+    category: "hollywood",
   });
 
   res.status(200).json({
