@@ -3,6 +3,7 @@ const fetch = (...args) =>
 const Movie = require("../models/movieModel");
 const fs = require("fs");
 const request = require("request");
+const sharp = require("sharp");
 
 var download = function (uri, filename, callback) {
   request.head(uri, function (err, res, body) {
@@ -19,11 +20,12 @@ exports.addMovie = async (req, res) => {
   );
   const imdb_data = await imdb_response.json();
   const backdrops = imdb_data.posters["backdrops"].slice(0, 4);
+
   for (const poster of backdrops) {
     // console.log(poster["link"]);
     download(
       `${poster["link"]}`,
-      `./public/resources/img/moviePoster/${imdb_data["title"] + i}.jpg`,
+      `./public/resources/img/moviePost/${imdb_data["title"] + i}.jpg`,
       function () {
         // console.log("done poster");
       }
@@ -37,13 +39,41 @@ exports.addMovie = async (req, res) => {
     `${imdb_data["title"]}3.jpg`,
     `${imdb_data["title"]}4.jpg`,
   ];
+
+  setTimeout(function () {
+    for (const img of cover_images) {
+      console.log(img);
+      sharp(
+        `C:/Users/Jatin verma/Documents/Movie/public/resources/img/moviePost/${img}`
+      )
+        .resize(1060, 596)
+        .toFile(
+          `C:/Users/Jatin verma/Documents/Movie/public/resources/img/moviePoster/${img}`,
+          function (err) {
+            console.log(err);
+          }
+        );
+    }
+  }, 5000);
   download(
     `${imdb_data["image"]}`,
-    `./public/resources/img/movie/${imdb_data["title"]}.jpg`,
+    `./public/resources/img/movietemp/${imdb_data["title"]}.jpg`,
     function () {
       // console.log("done");
     }
   );
+  setTimeout(function () {
+    sharp(
+      `C:/Users/Jatin verma/Documents/Movie/public/resources/img/movietemp/${imdb_data["title"]}.jpg`
+    )
+      .resize(210, 296)
+      .toFile(
+        `./public/resources/img/movie/${imdb_data["title"]}.jpg`,
+        function (err) {
+          console.log("image", err);
+        }
+      );
+  }, 8000);
   const movie_Name = `Download ${imdb_data["fullTitle"]} {${imdb_data["languages"]}}`;
   const movieSplitKeyword = imdb_data["title"].toLowerCase().split(" ");
   const movie = await Movie.create({

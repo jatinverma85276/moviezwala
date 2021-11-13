@@ -5,7 +5,7 @@ block content
         .row
             each movie in yearMovie 
                 .col.span-1-of-5.card
-                    img(src=`/resources/img/movie/${movie.movieImage}` alt=`${movie.movieName}`)
+                    img(src=`/resources/img/movieimg/${movie.movieImage}` alt=`${movie.movieName}`)
                     a(href=`/movie/${movie.slug}` )
                         h3= movie.movieName
             

@@ -10,7 +10,7 @@ block content
             p.reviewh1= `✅ Download ${movie_detail.storyline}`
             .reviewart
                 .col.span-1-of-3.review_div
-                    img.review_img(src=`/resources/img/movie/${movie_detail.movieImage}`)
+                    img.review_img(src=`/resources/img/movieimg/${movie_detail.movieImage}`)
                 .col.span-2-of-3.review_para
                     h3= `${movie_detail["title"]}`
                     p=`${movie_detail["movieDuration"]} | ${movie_detail["rating"]} | ${movie_detail["releaseDate"]} | India`
@@ -40,7 +40,7 @@ block content
             h4.reviewh1 ScreenShots
             div
                 each movie_cover in movie_detail['coverImage']
-                    img.reviewimg1(src=`/resources/img/moviePoster/${movie_cover}`)
+                    img.reviewimg1(src=`/resources/img/moviePter/${movie_cover}`)
             center
                 a(href=`${movie_detail['download']}`)
                     button.download_link Download(720p)
